@@ -304,6 +304,7 @@ footer {
 .footer-box {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 }
 
 
