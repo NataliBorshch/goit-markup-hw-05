@@ -17,6 +17,7 @@ html {
 
 body {
     margin: 0px 0px;
+    padding-top: 80px;
 
     font-family: Roboto, sans-serif;
     letter-spacing: 0.03em;
@@ -40,9 +41,15 @@ body {
 }
 
 .nav {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    top: 0;
+    left: 0;
     border: 1px solid #ECECEC;
-    padding-top: 24px;
-    padding-bottom: 25px;
+    background-color: var(--focus-color);
+    z-index: 1;
+
 }
 
 .logo {
@@ -55,7 +62,6 @@ body {
 .header-nav {
     display: flex;
     align-items: center;
-
 }
 
 .site-nav {
@@ -73,7 +79,10 @@ body {
 }
 
 .site-nav .link {
+    position: relative;
     display: block;
+    padding-top: 32px;
+    padding-bottom: 32px;
 
     font-weight: 500;
     font-size: 14px;
@@ -82,6 +91,7 @@ body {
     color: var(--primary-text-color);
     text-decoration: none;
 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .item-nav .activ {
@@ -94,6 +104,19 @@ body {
     color: var(--accent-color);
 }
 
+.item-nav .activ::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+}
+
 .contacts-header {
     display: flex;
     margin-left: auto;
@@ -101,12 +124,18 @@ body {
 }
 
 header .contacts-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
     color: var(--title-text-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-header .item+.item {
@@ -114,10 +143,6 @@ header .contacts-link {
 
 }
 
-.contacts-header .item:hover {
-    color: var(--accent-color);
-
-}
 
 header .contacts-link:hover,
 .contacts-link:focus,
@@ -125,11 +150,6 @@ header .contacts-link:hover,
     color: var(--accent-color);
 }
 
-.contacts-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .icon-header {
     margin-right: 10px;
@@ -180,6 +200,10 @@ header .contacts-link:hover,
     border: 1px solid transparent;
     border-radius: 4px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        borger 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero .button:hover,
@@ -189,6 +213,77 @@ header .contacts-link:hover,
     background-color: var(--focus-color);
     border: 1px solid var(--accent-color);
     outline: none;
+}
+
+.modal-hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.modal-hero:target {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.6s;
+}
+
+.modal-hero.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-hero .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 528px;
+    min-height: 581px;
+    background: var(--focus-color);
+
+}
+
+.modal-title {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+}
+
+.modal-send {
+
+    padding: 10px 56px;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--focus-color);
+    align-items: center;
+    text-align: center;
+    background-color: var(--accent-color);
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border: 1px solid transparent;
+
+}
+
+.modal .close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: var(--focus-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin-top: 8px;
+    margin-left: 490px;
+
+
 }
 
 /*Приемущесвта*/
@@ -261,6 +356,7 @@ h3 {
 .service-item {
     width: calc((100% - 60px)/ 3);
     align-items: baseline;
+    position: relative;
 }
 
 .service-list .service-item+.service-item {
@@ -272,8 +368,19 @@ h3 {
 
 }
 
-.features p {
+.service-list img {
+    display: block;
+}
+
+.features .service-title {
+    display: block;
+    position: absolute;
+    padding-top: 27px;
+    padding-bottom: 27px;
     margin: 0px 0px;
+    bottom: 0;
+    width: 100%;
+
 
     font-weight: bold;
     font-size: 14px;
@@ -355,6 +462,8 @@ h3 {
     color: #AFB1B8;
     background-color: var(--focus-color);
 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        bacrground-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .networks .item+.item {
@@ -414,6 +523,8 @@ h3 {
     border-radius: 4px;
     color: #AFB1B8;
 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client .link:hover {
@@ -467,6 +578,8 @@ footer {
     width: 44px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sign-networks .link:hover,
@@ -501,6 +614,10 @@ footer .button {
     letter-spacing: 0.06em;
     color: var(--focus-color);
     background: var(--accent-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 footer .button:hover,
@@ -522,6 +639,9 @@ footer .contacts-item {
     line-height: 1.71;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.6);
+
+    transition: color 250 ms cubic - bezier(0.4, 0, 0.2, 1);
+
 }
 
 footer .contacts-item:hover,
@@ -536,6 +656,9 @@ footer .contacts-address {
     font-size: 14px;
     line-height: 1.71;
     text-decoration: none;
+
+    transition: color 250 ms cubic - bezier(0.4, 0, 0.2, 1);
+
 }
 
 footer .contacts-address:hover,

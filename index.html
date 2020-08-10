@@ -50,8 +50,31 @@
 
         <section class=" list hero">
             <h1 class="hero-title">Эффективные решения</br> для вашего бизнеса</h1>
-            <button class="button">Заказать услугу</button>
+            <button class="button" data-modal-open>Заказать услугу</button>
         </section>
+
+        <!--Модалка герой-->
+        <div class="modal-hero  is-hidden " data-modal>
+            <div class="modal">
+
+                <button class="close-button" data-modal-close>
+                    <svg width="11" height="11">
+                        <use href="./img1/sprite.svg#Vector-2">
+                        </use>
+                    </svg>
+                </button>
+                <p class="modal-title">Оставьте свои данные, мы вам перезвоним</p>
+                <ul>
+                    <li>Имя</li>
+                    <li>Телефон</li>
+                    <li>Почта</li>
+                    <li>Комментарий</li>
+                </ul>
+                <button class="modal-send"> Отправить</button>
+
+            </div>
+
+        </div>
 
         <!--Приемущества-->
 
@@ -110,15 +133,15 @@
                 <ul class="list service-list ">
                     <li class="service-item">
                         <img src="./img1/laptop1.jpg" alt="Ноутбук" width="370" height="294">
-                        <p>Десктопные приложения</p>
+                        <p class="service-title">Десктопные приложения</p>
                     </li>
                     <li class="service-item">
                         <img src="./img1/phone2.jpg" alt="Смартфон" width="370" height="294">
-                        <p>Мобильные приложения</p>
+                        <p class="service-title">Мобильные приложения</p>
                     </li>
                     <li class="service-item">
                         <img src="./img1/monitor3.jpg" alt="Монитор ПК" width="370" height="294">
-                        <p>Дизайнерские решения</p>
+                        <p class="service-title">Дизайнерские решения</p>
                     </li>
                 </ul>
             </div>
@@ -399,6 +422,9 @@
 
         </div>
     </footer>
+
+    <script src="./js/modal.js"></script>
+
 </body>
 
 </html>
