@@ -338,6 +338,7 @@ footer {
 
 .sign-networks {
     display: flex;
+    margin-right: 93px;
 }
 
 .sign-networks .link {
@@ -371,8 +372,8 @@ footer {
 
 .footer-box {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
+    justify-content: space-between;
 }
 
 
@@ -411,7 +412,13 @@ footer .button:active {
     outline: none;
 }
 
+.contacts{
+    margin-right: 70px;
+}
 footer .contacts-item {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
     font-size: 14px;
     line-height: 1.71;
     text-decoration: none;
@@ -421,6 +428,7 @@ footer .contacts-item {
 }
 
 
+
 footer .contacts-item:hover,
 .contacts-item:active,
 .contacts-item:focus {
@@ -428,6 +436,9 @@ footer .contacts-item:hover,
 }
 
 footer .contacts-address {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
     color: var(--focus-color);
     font-size: 14px;
     line-height: 1.71;
